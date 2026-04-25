@@ -39,29 +39,23 @@ class ImageProcessingApp:
         tk.Label(self.left_frame, text="İŞLEM MENÜSÜ", fg="white", bg="#2c3e50", font=("Arial", 14, "bold")).pack(pady=10)
         self.create_menu_button("Resim Yükle", self.load_image, bg="#27ae60")
         
-        # Sprint 1
-        tk.Label(self.left_frame, text="-- Sprint 1 --", fg="#95a5a6", bg="#2c3e50").pack(pady=(5,0))
+        tk.Frame(self.left_frame, height=10, bg="#2c3e50").pack() # Boşluk
         self.create_menu_button("1. Gri Dönüşüm", self.show_gray_panel)
         self.create_menu_button("2. Binary / Eşikleme", self.show_threshold_panel)
-        self.create_menu_button("6. Renk Uzayı", self.show_color_space_panel)
-        
-        # Sprint 2
-        tk.Label(self.left_frame, text="-- Sprint 2 --", fg="#95a5a6", bg="#2c3e50").pack(pady=(5,0))
         self.create_menu_button("3. Döndürme", self.show_rotate_panel)
         self.create_menu_button("4. Kırpma", self.show_crop_panel)
         self.create_menu_button("5. Yakınlaştırma", self.show_zoom_panel)
-        self.create_menu_button("8. Aritmetik İşlemler", self.show_arithmetic_panel)
+        self.create_menu_button("6. Renk Uzayı", self.show_color_space_panel)
         
-        # Sprint 3
-        tk.Label(self.left_frame, text="-- Sprint 3 --", fg="#f1c40f", bg="#2c3e50").pack(pady=(5,0))
+        tk.Frame(self.left_frame, height=5, bg="#2c3e50").pack() # İnce boşluk
         self.create_menu_button("7. Histogram Germe", self.show_histogram_panel)
+        self.create_menu_button("8. Aritmetik İşlemler", self.show_arithmetic_panel)
         self.create_menu_button("9. Kontrast Artırma", self.show_contrast_panel)
         self.create_menu_button("10. Konvolüsyon (Mean)", self.show_mean_filter_panel)
-        self.create_menu_button("13. Gürültü ve Filtreleme", self.show_noise_panel)
         
-        # Sprint 4
-        tk.Label(self.left_frame, text="-- Sprint 4 --", fg="#e74c3c", bg="#2c3e50").pack(pady=(5,0))
+        tk.Frame(self.left_frame, height=5, bg="#2c3e50").pack() # İnce boşluk
         self.create_menu_button("12. Kenar Bulma", self.show_edge_panel)
+        self.create_menu_button("13. Gürültü ve Filtreleme", self.show_noise_panel)
         self.create_menu_button("14. Unsharp Maskeleme", self.show_unsharp_panel)
         self.create_menu_button("15. Morfolojik İşlemler", self.show_morphology_panel)
         
