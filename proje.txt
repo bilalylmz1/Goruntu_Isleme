@@ -1,0 +1,132 @@
+ 
+ 
+ 
+Görüntü İşleme Dersi
+Proje Ara Rapor Formu
+ 
+ 
+“Görüntü İşleme Tekniklerini Görselleştirme”
+ 
+ 
+233311055  -  Abdurrahman Karadağ
+233311040  -  Hayri Talha Özkan
+233311109   -  Umut Can
+233311005  -  Bilal Yılmaz
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. Giriş
+Bu projede görüntü işlemenin temel adımlarını ve konularını,çeşitli görüntü işleme adımları izlenerek etkileşimli bir arayüz ile kullanıcıya sunan bir uyguluma geliştirilmesi hedeflenmiştir. Uygulamada 15 farklı görüntü işleme konusunu kapsayan görüntü işleme adımlarını uygulayan modüller bulunacaktır.Kullanıcı bu modüller içerisinde ilgili işlemi başlatacak butona tıkladığında vermiş olduğu resmin o algoritmanın sonucunda ürettiği çıktı resmini görecektir.Tüm görüntü işleme adımları geliştirildiği yazılımın hazır fonksiyonları kullanılmadan,algoritmaların matematiksel altyapısını direkt olarak uygulayarak geliştirilecektir.İşlem  sonrası çıktı  olarak gösterilen fotoğrafik  dönüşüm işlemi,afın yanı sıra,o işlem adımı içerisinde kullanılan algoritmanın matematiksel formülleri ve gerekli bilgiler kullanıcıya gösterilecektir.
+Proje kapsamında ele alınan konular şunlardır :binary dönüşümü,görüntü döndürme,görüntüyü kırpma,yakınlaştırma ve uzaklaştırma,renk uzayı dönüşümleri,histogram analizi ve germe,iki görüntü arasında aritmetik işlemler,kontrast artırma,konvolüsyon,tek eşikleme,kenar bulma algoritmaları,gürültü ekleme ve gürültü temizleme  filtreleri ile gürültüyü temizleme ,görüntüye unsharp maskeleme filtresi ekleme,genişleme aşınma açma ve kapama işlemlerini kapsayan morfolojik işlemler. 
+2. Literatür Taraması
+Dijital görüntü işleme alanının temel başvuru kaynağı olan Gonzalez ve Woods'un ‘Digital Image Processing’kitabı,gri state dönüşümleri,histogram eşitleme,uzaysal filtreleme,kenar bulma ve morfolojik işlemler vb. konuları kapsamlı biçimde ele almaktadır[1].Projemizde  uygulanan konvolüsyon,eşikleme,histogram germe ve kontrast iyileştirme adımlarının teorik altyapısı bu esere dayanmaktadır.
+Ahmad(2018),Sobel,Prewitt ve  Canny kenar bulma algoritmalarını MSE ve PSNR metrikleri üzerinden karşılaştırmalı olarak incelemiştir.ResearchGate çalışmanın deneysel sonuçları,Canny algoritmasının diğer  yöntemlere kıyasla daha yüksek performans sergilediğini ortaya koymuştur. ResearchGate projemizde kenar bulma konusu,basit yapısı ve düşük hesaplama maliyeti nedeniyle eğitim amaçlı kullanıma uygun olan Prewitt operatörü ile gösterilmektedir.
+Kaur,Kaur ve Kaur(2011),histogram eşitleme tabanlı kontrast iyileştirme tekniklerini derleyerek BBHE,QBHE,DSIHE ve MMBEBHE  gibi yöntemleri  karşılaştırmışlardır.IJACSA eğitim aracımızdaki  histogram analizi bölümünde bu teknikler interaktif olarak  görselleştirilmektedir.
+Patel,Maravi ve Sharma (2013),parlaklık koruma ve kontrast iyileştirme hedefli histogram eşitleme yöntemlerini AMBE,PSNR,SSIM ve entropi metrikleri üzerinden değerlendirmişlerdir. arXiv aracımızdaki histogram eşitleme ve germe modülleri bu çalışmadaki formülasyonlardan yararlanmaktadır.Said ve Jambek(2021),morfolojik erozyon ve dilasyon  işlemlerinde yapılandırma  elemanının çıktı görüntü üzerindeki etkisini incelemişlerdir.ResearchGate sonuçlar,doğru yapılandırma elemanı seçiminin ön plan ve arka plan yapısını önemli ölçüde etkilediğini  göstermiştir.ResearchGate  aracımızdaki morfolojik işlemler bölümünde erozyon,dilasyon,açma ve kapama işlemlerinin farkı görsel olarak karşılaştırılmaktadır.
+Polesel,Ramponi ve Mathews(2000),unsharp maskeleme için adaptif bir filtre yöntemi sunarak yüksek detaylı alanlarda kontrast iyileştirmesi sağlarken düz alanlarda gürültü yükseltmesini önlemeyi amaçlamışlardır.PubMed projemizde kullanıcı, unsharp filtre bölümünde güçlendirme katsayısını slider ile ayarlayarak keskinleştirme etkisini canlı olarak gözlemleyebilmektedir.
+Hwang ve Haddad(1995 ),adaptif medyan filtresinin tuz-biber gürültüsü gidermedeki etkinliğini ortaya koyan temel çalışmayı  gerçekleştirmişlerdir.Nature eğitim aracımızda gürültü bölümünde,farklı gürültü oranlarında ortalama ve medyan filtrelerin sonuçları yan yana karşılaştırılmaktadır.
+Sage ve Unser ( 2003),ImageJ platformu üzerinde görüntü işleme eğitimi için öğrenci dostu bir yazılım ortamı tasarlamışlardır.Semantic Scholar bu çalışma,projemizin interaktif eğitim aracı yaklaşımına ilham kaynağı olmuştur .
+3. Kullanılan / Kullanılacak Teknolojiler
+3.1.Python
+Gerçekleştirilecek matris hesaplamalarında ve diğer sayısal hesaplarda basit sözdizimi ve kolay programlanabilir yapısı sebebiyle programlama işlemlerinde python kullanılacaktır. 
+3.2.NumPy
+Görüntü verilerinin  matris ve dizi olarak  temsil  edilebilmesi için ve  piksellerle matematiksel işlemler yapabilmek  için NumPy  kullanılacaktır.Algoritmalarda uygulanacak matematiksel formüller temel düzeyde hazır  fonksiyonlar kullanılmadan NumPy dizeleri ve matrisler üzerinden uygulanacaktır.3.3.Tkinter  
+Kullanıcının etkileşime geçebileceği bir arayüz oluşturabilmek için Python’ın Tkinter  kütüphanesi kullanılacaktır.Butonlar oluşturmak,kaydırma işlemleri yapabilmek  ve input alınabilecek metin kutuları  oluşturmak gibi görüntü işleme adımlarını kullanıcıya gösterirken ve gereken inputları alıp çıktıları ifade ederken gerekli arayüz  ihtiyaçlarını  oluşturabilmek için seçilmiştir.
+3.4.OpenCV
+OpenCV kütüphanesi yalnızca okuma ve kaydetme gibi fonksiyonlar için kullanılacaktır. Resize, rotate,filter2D gibi hazır  görüntü işleme fonksiyonları için kesinlikle ve kesinlikle kullanılmayacaktır.
+3.5.Matplotlib
+Histogramın görselleştirmesinde işlem öncesinde ve sonrasında yapılacak  karşılaştırmalar ve elde edilen  sonuç  görüntülerinin ekrana çizdirilerek karşılaştırılma yapılması için kullanılacaktır.
+3.6. Sıfırdan Kodlanan Algoritmalar
+Projede kullanılan tüm  görüntü işleme algoritmaları en baştan formüller modellenerek kodlanmıştır.Modellenen algoritmalar şu şekilde : gri dönüşüm,binary dönüşüm,görüntü döndürme-kırpma-yaklaştırma-uzaklaştırma,renk uzayı dönüşümleri,giriş görüntüsüne ait histogram ve orjinal görüntü histogramını germe-genişletme,iki resim arasında aritmetik işlemler,kontrast artırma,konvülasyon işlemi,eşikleme işlemi,kenar bulma algoritması,görüntüye gürültü ekleme ve filtrelerin kullanımı ile gürültü temizleme,görüntüye filtre  uygulanması,morfolojik işlemler gibi algoritmaları  modelleyerek  belirli bir arayüz aracılığı ile uygulamak .
+4. Uygulama Çalışma Prensibi
+Bahsi geçen uygulama,kolay bir  arayüze sahip olduğundan dolayı birbirinden farklı 15 görüntü işleme adımı  uygulanmaktadır.Aşağıda sistemin çalışma adımları ve her bir alt işlemin işleyiş biçimi açıklanmıştır .
+4.1. Genel Sistem Yapısı
+Uygulama başlatıldıktan sonra Tkinter penceresi otomatik olarak açılır.Daha sonra sol panelde 15 âdet işlemin listesi gösterilir.Kullanıcı herhangi bi konuya tıkladıktan sonra sağ pencerede kullanıcıdan o işleme ait parametreleri girmesi istenir.Kullanıcı tarafından girilen parametreler kontrol edildikten sonra eğer doğru  parametre girişi yapılırsa oluşturulan görüntü kullanıcıya gösterilir.Yanlış  parametre girilmesi durumunda kullanıcı uyarılır ve tekrardan ilgili parametreleri girmesi istenir.Haricî bir görüntüye ihtiyaç duyulmaması için örnek bir görüntü uygulama içerisinde otomatik olarak üretilir.Bu sayede kullanıcı harici bir görüntü dosyasını yüklemek zorunda kalmaz.
+4.2. Akış Şeması
+Sistem akışı özetlenecek olursa: İlk olarak uygulama başlatılır ve örnek görüntümüz piksel piksel kullanıcıya gösterilir.Daha sonrasında kullanıcı,15 işlemden birisini seçer.Bu adımdan sonra kullanıcının kayar  panel ve butonları kullanarak parametreleri ayarlaması beklenir.Seçilen algoritma en baştan çalıştırılır ve ilgili sonucun görüntüsü,oluşturmuş olduğumuz algoritmalarımız ile hesaplanır.Orijinal görüntü ve oluşturulan görüntü yan yana gösterilir.Kullanıcı tarafından parametre değiştirildikçe ilgili sonuç da anlık olarak  güncellenir .
+4.3. Gri Dönüşüm Modülü
+İlgili RGB görüntü,ağırlıklı  ortalama formülü aracılığı ile tek kanallı  gri tonlamalı görüntüye dönüştürülür.Daha sonrasında  kullanıcıya orijinal görüntü ve  oluşturulmuş  olan  gri  görüntü yan yana olacak şekilde gösterilir.Bu işlem,sonraki pek çok işlemin ön adımı olduğu için ilk sırada yer almıştır.
+4.4. Binary Dönüşüm Modülü 
+Kullanıcının kayar panel aracılığı ile ayarladığı eşik değeri ile algoritmamız tarafından oluşturulan gri görüntü üzerinde binary dönüşüm yapılır. İlgili eşik değeri 0-   255 arasında herhangi bir değer alabildiğinden dolayı kullanıcı farklı eşik değerlerini deneyerek eşik değerinin görüntü üzerindeki etkisini anlık olarak takip edebilir .
+4.5. Görüntü Döndürme Modülü
+Kullanıcının kayar panel aracılığı ile belirlediği açı değeri kadar ilgili görüntümüz döndürülür.Bu açı değeri -180  derece ile +180 derece arasında değerlere sahip olabilir.Yaptığımız döndürme işlemi algoritması 2 Boyutlu rotasyon matrisi( kosinüs,sinüs)kullanır ve  her bir  piksel  için  yeni  bir koordinat  değeri hesaplayarak bu olay gerçekleştirir.Bu algoritma“en yakın komşu interpolasyonu”kullanılır.
+4.6. Görüntü Kırpma Modülü
+4 adet parametre aracılığı ile kırpılacak bölge belirlenir.Kırpılacak bölgelerin koordinat değerleri ilgili NumPy dizisinin indexleri olarak atanır.Daha sonrasında ilgili indeks değerleri yani kullanıcının girmiş olduğu koordinat değerleri görüntü matrisinde indeks olarak kullanılıp ilgili bölge hızlıca kesilir ve kırpma işlemi tamamlanmış olur.
+4.7. Yakınlaştırma/Uzaklaştırma Modülü
+Görüntü boyutlandırma aşamasında kullanıcıdan alınan katsayıya göre (×0.5  –  ×3.0 ) bir ölçeklendirme işlemi yapılır ve  görüntü boyutlandırılır.Boyutlandırma işlemi tamamlandıktan sonra“en yakın komşu interpolasyonu”kullanılır ve oluşturulan yeni boyuttaki her bir  piksel için elimizdeki görüntüdeki en yakın pikselin koordinatı hesaplanır: kaynak_x=int( yeni_x Xeski_genislik   /yeni_genislik ) .
+4.8. Renk Uzayı Dönüşümleri Modülü
+Bu işlem  için HSV ve YCbCr olmak üzere iki farklı dönüşüm seçeneği kullanıcının tercihine bırakılır.Eğer kullanıcı HSV seçeneğini seçerse her bir  piksel için Hue,Saturation ve Value değerleri   ; şayet YCbCr seçeneğini seçerse de Y(parlaklık),Cb ve CR özellikleri manuel bir şekilde oluşturmuş olduğumuz  formüller aracılığı ile  hesaplanır.Arayüzümüzde bulunan  butonlar aracılığı ile kullanıcı isterse  iki mod arasında geçiş yapabilir.
+4.9. Histogram Analizi ve Germe Modülü
+Bu işlem için gri görüntümüzün  histogram değeri hesaplanır ve  ardından çizilir .Normalizasyonu sağlayan min ve  max  değerler kullanarak histogram germe işlemi uygulanır  :  yeni_piksel=( ( eski_piksel - min )/  (max -  min) ) X255.Kullanıcının germenin etkisini daha iyi görebilmesi için germe öncesi ve sonrası ilgili histogramlar yan yana gösterilir ve germenin etkisi görsel olarak kolay bir şekilde karlılaştırılır.
+4.10. Aritmetik İşlemler Modülü
+Ekleme ve bölme olmak üzere iki işlem modu mevcuttur. Ekleme : orijinal görüntü ile negatifi(ters çevrilmiş hali)α ağırlık katsayısıyla işleme sokulur: C = αA + (1-α)B. Bölme modunda piksel değerleri bölünerek oran analizi yapılır.Taşma kontrolü 0 - 255  aralığına ‘Clipping’  ile sağlanır.
+4.11. Kontrast Artırma Modülü
+İki parametre sliderı sunulur: α(çarpan ) ve  β(eklenen).Lineer kontrast ayarlama formulü  :  yeni_piksel = clip(α × eski_piksel +  β,0,255 ). α  >  1 kontrastı artırır,α  < 1 azaltır.β   parlaklığı kaydırır.
+4.12. Konvolüsyon  Modülü
+Kullanıcının ayarladığı çekirdek boyutu (3,5,7,9,11) ile ortalama filtre uygulanır.Herpiksel, çevresindeki NxN komşuluğun aritmetik ortalamasıyla değiştirilir.Çekirdek boyutu arttıkça bulanıklaşma etkisi yükselir bu fark slider ile canlı olarak görünür.
+4.13. Tek Eşikleme Modülü
+Gri görüntü üzerinde slider ile belirlenen eşik değeri  uygxulanır. Piksel ≥ T ise 255->beyaz, değilse 0->siyah olarak atanır.Eşik değerinin değiştikçe segmentasyon sonuçlarını nasıl etkilediği görsel olarak izlenir.
+4.14. Kenar Bulma Modülü
+Prewitt operatörü ile yatay ve  dikey yönlerde kenar tespiti yapılır.Yatay çekirdek : 
+[[-1,0, 1],
+[-1,0, 1],
+[-1,0,1]] ve dikey çekirdek :
+ [[-1 ,-1,-1],
+[0, 0,0],
+[1,1 ,1]] konvolüsyonla uygulanır. Gradyan büyüklüğü |Gx| + |Gy | formülü ile birleştirilerek kenar haritası elde edilir.
+4.15. Gürültü Ekleme ve Filtreleme Modülü
+Görüntüye slider ile belirlenen oranda tuz  - biber gürültüsü eklenir : rastgele pikseller 0 VEYA 255 yapılır.Ardından aynı gürültülü görüntüye hem mean hem median filtre uygulanır. 3 sonuç : gürültülü,mean filtrelenmiş,median filtrelenmiş  yan yana gösterilerek filtrelerin karşılaştırmalı performansı gözlemlenir.
+4.16. Unsharp Maskeleme Modülü
+Keskinleştirme katsayısı slider ile ayarlanır.Önce  görüntünün bulanık versiyonu 5x5 mean filtre ile elde edilir sonra  formül uygulanır : keskin=orijinal+kx(orijinal - bulanık ).k değeri arttıkça keskinleştirme etkisi artar ve  bu değişim canlı olarak takip edilir .
+4.17. Morfolojik İşlemler Modülü
+Binary görüntü üzerinde 3x3 yapısal eleman ile dört işlem sunulur.Genişleme(dilation) :  komşulukta en az bir beyaz varsa merkez beyaz yapılır.Aşınma : tüm komşuluk beyazsa merkez beyaz kalır. Açma: önce aşınma sonra genişleme.Kapama: önce genişleme sonra aşınma. Butonlarla dört işlem arasında geçiş yapılarak sonuçlar karşılaştırılır.
+ 
+Aşağıdaki tabloda, projede yer alan tüm görüntü işleme konuları ve her birinin eğitim aracındaki rolü özetlenmektedir   :
+Konu
+İnteraktif Eğitim Aracındaki Rolü
+Gri Dönüşüm
+Orijinal -> gri görsel karşılaştırma
+Binary  Dönüşüm
+Slider ile eşik değeri değiştirme.
+Görüntü Döndürme
+Slider ile açı ayarlama(-180° – +180°)
+Görüntü Kırpma
+Dört slider ile bölge  seçimi 
+Yakınlaştırma/Uzaklaştırma
+Slider ile ölçek faktörü (x0.5 – x3.0)
+Renk Uzayı Dönüşümleri
+HSV / YCbcr mod seçim butonları
+Histogram Germe
+Histogram grafikleri + germe sonucu
+Aritmetik İşlemler
+Ekleme/bölme mod + α sliderı
+Kontrast Artırma
+α ve β sliderı ile canlı ayar
+Konvolüsyon ( Mean)
+Çekirdek boyutu  sliderı (3 -11)
+Tek  Eşikleme
+Eşik değeri  sliderı (0- 255)
+Kenar Bulma (Prewitt)
+Kenar haritası görseli
+Gürültü & Filtreleme
+Oran sliderı +  mean/ median karşılaştırma
+Unsharp Filtresi
+k sliderı ile keskinleştirme ayarı
+Morfolojik İşlemler
+4 işlem butonu ile karşılaştırma
+ 
+5.Kaynaklar
+[1] R. C. Gonzalez ve R. E. Woods, Digital Image Processing, 4th ed., Pearson, 2018. (https://www.pearson.com/us/higher-education/program/Gonzalez-Digital-Image-Processing-4th-Edition/PGM241219.html )
+[2] A. S. Ahmed, "Comparative Study Among Sobel, Prewitt and Canny Edge Detection Operators Used in Image Processing," Journal of Theoretical and Applied Information Technology, vol. 96, no. 19, 2018. (http://www.jatit.org/volumes/Vol96No19/20Vol96No19.pdf)
+[3] M. Kaur, J. Kaur ve J. Kaur, "Survey of Contrast Enhancement Techniques based on Histogram Equalization," International Journal of Advanced Computer Science and Applications (IJACSA), vol. 2, no. 7, 2011. https://thesai.org/Publications/ViewPaper?Volume=2&Issue=7&Code=IJACSA&SerialNo=21
+[4] O. Patel, Y. P. S. Maravi ve S. Sharma, "A Comparative Study of Histogram Equalization Based Image Enhancement Techniques for Brightness Preservation and Contrast Enhancement," arXiv:1311.4033, 2013. https://thesai.org/Publications/ViewPaper?Volume=2&Issue=7&Code=IJACSA&SerialNo=21
+[5] K. A. M. Said ve A. B. Jambek, "Analysis of Image Processing Using Morphological Erosion and Dilation," Journal of Physics: Conference Series, 2021. https://thesai.org/Publications/ViewPaper?Volume=2&Issue=7&Code=IJACSA&SerialNo=21
+[6] A. Polesel, G. Ramponi ve V. J. Mathews, "Image Enhancement via Adaptive Unsharp Masking," IEEE Transactions on Image Processing, vol. 9, no. 3, pp. 505–510, 2000. https://pubmed.ncbi.nlm.nih.gov/18255421/
+[7] H. Hwang ve R. A. Haddad, "Adaptive Median Filters: New Algorithms and Results," IEEE Transactions on Image Processing, vol. 4, no. 4, pp. 499–502, 1995.
+[8] D. Sage ve M. Unser, "Teaching Image-Processing Programming in Java," IEEE Signal Processing Magazine, vol. 20, no. 6, pp. 43–52, 2003. https://www.semanticscholar.org/paper/Teaching-image-processing-programming-in-Java-Sage-Unser/7f0c30fed1dcf46f5490676da383deb98c3b28a0

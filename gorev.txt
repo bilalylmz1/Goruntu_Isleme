@@ -1,0 +1,41 @@
+Hayri
+Bilal
+Apo
+Umut
+Gri Dönüşüm
+Binary Dönüşüm
+Kenar Bulma Algoritmalarının Kullanımı (prewitt)
+Görüntü Kırpma
+Görüntü Yaklaştırma/Uzaklaştırma
+Renk Uzayı Dönüşümleri
+Giriş görüntüsüne ait histogram ve orjinal görüntü histogramını germe/genişletme 
+İki resim arasında aritmetik işlemler (ekleme, bölme) 
+Kontrast artırma 
+Konvolüsyon İşlemi (mean) 
+Eşikleme işlemleri (Tek Eşikleme) 
+Görüntü Döndürme
+Görüntüye Gürültü Ekleme (Salt&Pepper) ve filtrelerin kullanımı (mean, median) ile gürültü temizleme 
+Görüntüye Filtre Uygulanması (Unsharp) 
+Morfolojik İşlemler (Genişleme, Aşınma) 
+Morfolojik İşlemler(Açma,Kapama)
+Maymuna Muz Versen Versen Yapar(Öngörü)
+Gri Dönüşüm
+Binary Dönüşüm
+Kontrast Artırma
+Giriş görüntüsüne ait histogram ve orjinal görüntü histogramını germe/genişletme 
+İki resim arasında aritmetik işlemler (ekleme, bölme)
+Konvolüsyon İşlemi (mean)
+Eşikleme işlemleri (Tek Eşikleme)
+Ön Çalışma Gerekebilir
+Görüntü Döndürme
+Görüntü Kırpma
+Görüntü Yaklaştırma/Uzaklaştırma
+Renk Uzayı Dönüşümleri
+Kenar Bulma Algoritmalarının Kullanımı (prewitt)
+Görüntüye Gürültü Ekleme (Salt&Pepper) ve filtrelerin kullanımı (mean, median) ile gürültü temizleme
+Görüntüye Filtre Uygulanması (Unsharp)
+Morfolojik İşlemler (Genişleme, Aşınma)
+Morfolojik İşlemler(Açma,Kapama)
+!!! Algoritmanın kodunu yazdırmadan önce algoritmayı anlamamız çok önemli. Kodu yazamıyor olsak bile algoritmayı anladıktan sonra yardım isteyelim diğerlerinden. Align mıyız?
+Align
+25 Nis 2026 ->  Bugün on yüze başlanacak ufak bi başlangıç2 May 20263 May 2026 -> geri kalan on yüz tamamlanacak ve algoritmaların da bir kısmı tamamlanacak align mıyız?9 May 202610 May 2026-> bu iki günde bitecek yani umarım
